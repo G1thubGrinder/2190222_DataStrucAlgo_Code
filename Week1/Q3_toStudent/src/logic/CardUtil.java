@@ -1,5 +1,4 @@
 package HW.Week1.Q3_toStudent.src.logic;
-import HW.Week1.Q3_toStudent.*;
 import java.util.*;
 import java.io.File;
 import java.io.FileNotFoundException;
