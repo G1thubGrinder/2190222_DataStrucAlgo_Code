@@ -9,7 +9,7 @@ public class Order {
 	
 	public Order() {
 		this.orderItemList = new ArrayList<OrderItem>();
-		this.orderNumber = 0;
+		this.orderNumber = totalOrderCount;
 		totalOrderCount += 1;
 	}
 
