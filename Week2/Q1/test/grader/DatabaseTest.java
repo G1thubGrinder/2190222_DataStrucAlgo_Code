@@ -1,4 +1,4 @@
-package test.grader;
+package HW.Week2.Q1.test.grader;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -7,9 +7,9 @@ import java.util.ArrayList;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import logic.Database;
-import logic.Player;
-import logic.Region;
+import HW.Week2.Q1.logic.Database;
+import HW.Week2.Q1.logic.Player;
+import HW.Week2.Q1.logic.Region;
 
 class DatabaseTest {
 

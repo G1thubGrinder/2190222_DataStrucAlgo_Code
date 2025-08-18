@@ -52,15 +52,26 @@ public class Region {
 			total += p.getRank();
 			count++;
 		}
-		return total/count;
+		return (double) Math.round(total*100/count)/100;
 	}
 	
-	public ArrayList<Quest> getAvailableQuest(Player viewer){
+	public ArrayList<Quest> getAvailableQuests(Player viewer){
 		ArrayList<Quest> availableQuest = new ArrayList<Quest>();
 		for(Quest q : questList) {
-			if(q != viewer.getCurrentQuest() && q.getStatus() == AVAILABLE) {continue;}
-			if(q.getStatus)
+			if(q.getAuthor() != viewer && q.getStatus() == Status.AVAILABLE) {
+				availableQuest.add(q);
+			}
 		}
+		return availableQuest;
 	}
+	
+	public void addPlayerToRegion(Player p) {
+		playerList.add(p);
+	}
+	
+	public void addQuestToRegion(Quest q) {
+		questList.add(q);
+	}
+	
 	
 }
