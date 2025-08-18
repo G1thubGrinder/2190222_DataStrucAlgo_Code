@@ -1,13 +1,13 @@
-package main;
+package HW.Week2.Q1.main;
 
 import java.util.Scanner;
 
-import logic.Database;
-import logic.DatabaseUtil;
-import logic.Player;
-import logic.Quest;
-import logic.Region;
-import logic.Status;
+import HW.Week2.Q1.logic.Database;
+import HW.Week2.Q1.logic.DatabaseUtil;
+import HW.Week2.Q1.logic.Player;
+import HW.Week2.Q1.logic.Quest;
+import HW.Week2.Q1.logic.Region;
+import HW.Week2.Q1.logic.Status;
 
 public class Main {
 

@@ -1,4 +1,4 @@
-package test.grader;
+package HW.Week2.Q1.test.grader;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -7,10 +7,10 @@ import java.util.ArrayList;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import logic.Player;
-import logic.Quest;
-import logic.Region;
-import logic.Status;
+import HW.Week2.Q1.logic.Player;
+import HW.Week2.Q1.logic.Quest;
+import HW.Week2.Q1.logic.Region;
+import HW.Week2.Q1.logic.Status;
 
 class RegionTest {
 	
