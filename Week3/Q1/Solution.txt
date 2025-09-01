@@ -1,0 +1,255 @@
+1.int mA1 (int [] a) {
+    int maxSum = 0;
+    for (int i = 0; i < a.length; i++) {
+            int theSum = 0;
+                for (int j = i; j < a.length; j++) {
+                     theSum += a[j];
+                           if (theSum > maxSum) {
+                         maxSum = theSum;                       
+                        }
+                }
+        }
+        return maxSum;
+}
+
+Pick a choice:
+1.) O(n)
+2.) Θ(n)
+3.) O(n^2)
+4.) Θ(n^2)
+
+Answer: 4.) Θ(n^2)
+
+---------------------------------------------------------------------------------------
+=======================================================================================
+---------------------------------------------------------------------------------------
+
+2.int method3(int n) {
+  if (n>0) {
+       method3(n-3);      
+       method3(n-3);        
+  }
+}
+
+Pick a choice:
+1.) Θ(n)
+2.) Θ(n^2)
+3.) Θ(2^n)
+4.) Θ(log n)
+
+Answer: 3.) Θ(n^2)
+
+---------------------------------------------------------------------------------------
+=======================================================================================
+---------------------------------------------------------------------------------------
+
+3. protected void traverse(int start) {
+   int parent = start;
+   int child = 2 * parent + 1;
+   int temp;
+   while (child < size) { // size of array == size
+      if (child < size - 1 && mData[child] > mData[child + 1])
+         child++;
+      if (mData[parent] <= mData[child])
+         break;
+      temp = mData[child];
+      mData[child] = mData[parent];
+      mData[parent] = temp;
+      parent = child;
+      child = 2 * parent + 1;
+   }
+}
+
+Pick a choice:
+1.) O(log n)
+2.) Θ(log n)
+3.) Θ(n)
+4.) O(n)
+
+Answer: 2.) Θ(log n)
+
+---------------------------------------------------------------------------------------
+=======================================================================================
+---------------------------------------------------------------------------------------
+
+4.public static int fibo(int n) {
+   if (n <= 1)
+      return n;
+    return fibo(n-1) + fibo(n-2);
+}
+
+Pick a choice:
+1.) O(n)
+2.) O(2^n)
+3.) O(n^4)
+4.) O(n^2)
+
+Answer: 2.) O(2^n)
+
+---------------------------------------------------------------------------------------
+=======================================================================================
+---------------------------------------------------------------------------------------
+
+5. int method5(int n, int x) { //  0 <= x < n
+  int sum = 0;
+  for (int i = 0; i < n; i++) {
+    sum = sum + i;  
+    int f = 0;
+    while(f < n) { sum += f++; }
+    if (i == x)  return sum;
+  }
+}
+
+Pick a choice:
+1.) Θ(n^2)
+2.) Θ(n)
+3.) O(n)
+4.) O(n^2)
+
+Answer: 4.) O(n^2)
+
+---------------------------------------------------------------------------------------
+=======================================================================================
+---------------------------------------------------------------------------------------
+
+6. int method2(int[] a){
+    int s = 0;
+    for (int i = 0; i < a.length ; i++) 
+       for (int j = i; j >= 0 ; j--) 
+           s = a[i] – a[j];
+    return s
+}
+
+Pick a choice:
+1.) Θ(n^2)
+2.) Θ(n)
+3.) O(n)
+4.) O(n^2)
+
+Answer: 1.) Θ(n^2)
+
+---------------------------------------------------------------------------------------
+=======================================================================================
+---------------------------------------------------------------------------------------
+
+7. method4(int n) {
+  s = 0;
+  for (int i=1; i<=n; i++)     
+    for (int j=1; j<=n; j++)
+      if (i==j)
+        for (int k = 0; k < n; k++)
+          s++;  
+  return s;
+}
+
+Pick a choice:
+1.) Θ(n^3)
+2.) Θ(n^2)
+3.) O(n^2)
+4.) O(kn)
+
+Answer: 2.) Θ(n^2)
+
+---------------------------------------------------------------------------------------
+=======================================================================================
+---------------------------------------------------------------------------------------
+
+8. int method1(int n) {
+  s = 0;
+  for (int i=1; i<=n; i++) s++;      
+  for (int i=n; i>=1; i--) s++;        
+  return s;
+}
+
+Pick a choice:
+1.) Θ(n)
+2.) Θ(n^2)
+3.) O(n^2)
+4.) Θ(1)
+
+Answer: 1.) Θ(n)
+
+---------------------------------------------------------------------------------------
+=======================================================================================
+---------------------------------------------------------------------------------------
+
+9.int m1(int v, int k) { // return the kth digit of v.  Assume k is always small.
+    int i;
+    for (i=0; i<k; i++) v /= 10;
+    return v % 10;
+}
+
+void f(int data[], int n, int d) { //This is the main program.  Assume d is always small.
+    int i, k, j;
+    Queue q[10];  // all Queue operations take O(1)
+    for (i=0; i<10; i++) q[i] = new Queue(n);
+    for (k=0; k<d; k++) {
+        for (i=0; i<n; i++) {
+            q[m1(data[i],k)].insertLast(data[i]);
+        }
+        for (i=0, j=0; i<10; i++) {
+            while(!q[i].isEmpty()) {
+                data[j++] = q[i].removeFirst();
+            }
+        }
+    }
+}
+
+Pick a choice:
+1.) Θ(n)
+2.) Θ(log n)    
+3.) Θ(n^2)
+4.) Θ(n log n)
+
+Answer: 1.) Θ(n)
+
+---------------------------------------------------------------------------------------
+=======================================================================================
+---------------------------------------------------------------------------------------
+
+10.int mA2 (int [] array, int leftindex, int rightindex {
+//assume that the array can be divided evenly.
+     if (leftindex == rightindex) { // Base Case
+         if (array[leftindex] > 0 )
+            return array[leftindex];
+        else
+                   return 0; // min value of maxSubSum cannot be negative
+     }
+     int centerindex = (leftindex + rightindex)/2;
+     int maxsumleft = mA2(array, leftindex, centerindex);
+     int maxsumright = mA2( array, centerindex + 1, right);
+
+     int maxlefthalfSum = 0, lefthalfSum = 0;
+     //max sum – from the last element of the left side to the first element.
+     for (int i = centerindex; i >= leftindex; i--) {
+        lefthalfSum = lefthalfSum + array[i];
+        if (lefthalfSum > maxlefthalfSum) {
+            maxlefthalfSum = lefthalfSum;
+        }
+     }
+
+     int maxrighthalfSum = 0, righthalfSum = 0;
+     // max sum – from the first element of the right side to the last element.
+     for (int i = centerindex + 1; i <= rightindex; i++) {
+        righthalfSum = righthalfSum + array [i];
+        if (righthalfSum > maxrighthalfSum) {
+           maxrighthalfSum = righthalfSum;
+        }
+     }
+     //finally, find max of the three.
+     int sumBothHalf = maxlefthalfSum + maxrighthalfSum;
+     if(maxsumleft >= maxsumright && maxsumleft >= sumBothHalf)
+        return maxsumleft;
+     if(maxsumright >= maxsumleft && maxsumright >= sumBothHalf)
+        return maxsumright;
+     
+     return sumBothHalf;  
+}
+
+Pick a choice:
+1.) O(n log n)
+2.) O(n^2)
+3.) Θ(n log n)
+4.) Θ(n^2)
+
+Answer: 3.) Θ(n log n)
