@@ -48,71 +48,28 @@ public class BigO {
 		return result;
 	}
 	
-//	public static List<List<Integer>> m2Version2(int[] nums) { // O(n^2)
-//        List<List<Integer>> result = new ArrayList<>();
-//        ArrayList<Integer> numbers = new ArrayList<>();
-//        for(int i = 0; i < nums.length; i++) {
-//        	numbers.add(nums[i]);
-//        }
-//        for(int i = 0; i < nums.length - 1; i++) {
-//        	for(int j = i + 1; j < nums.length; j++) {
-//        		int target = -nums[i]-nums[j];
-//        		if(numbers.contains(target)) {
-//        			List<Integer> triplet = Arrays.asList(nums[i], nums[j], target);
-//        			Collections.sort(triplet);
-//        			if(!result.contains(triplet)) {
-//        				result.add(triplet);
-//        			}
-//        		}
-//        	}
-//        }
-//        return result;
-//   }
-	public List<List<Integer>> m2Version2z(int[] nums) {
-        List<List<Integer>> ans = new ArrayList<>();
-
-        // Sort the array
+	public static List<List<Integer>> m2Version2(int[] nums) { // O(n^2)
+        List<List<Integer>> result = new ArrayList<>();
         Arrays.sort(nums);
-
-        for (int i = 0; i < nums.length - 2; i++) {
-            // Skip duplicate elements for i
-            if (i > 0 && nums[i] == nums[i - 1]) {
-                continue;
-            }
-
-            int j = i + 1;
-            int k = nums.length - 1;
-
-            while (j < k) {
-                int sum = nums[i] + nums[j] + nums[k];
-
-                if (sum == 0) {
-                    // Found a triplet with zero sum
-                    ans.add(Arrays.asList(nums[i], nums[j], nums[k]));
-
-                    // Skip duplicate elements for j
-                    while (j < k && nums[j] == nums[j + 1]) {
-                        j++;
-                    }
-
-                    // Skip duplicate elements for k
-                    while (j < k && nums[k] == nums[k - 1]) {
-                        k--;
-                    }
-
-                    // Move the pointers
-                    j++;
-                    k--;
-                } else if (sum < 0) {
-                    // Sum is less than zero, increment j to increase the sum
-                    j++;
-                } else {
-                    // Sum is greater than zero, decrement k to decrease the sum
-                    k--;
-                }
-            }
+        
+        for(int i = 0; i < nums.length - 2; ++i) {
+        	if(i > 0 && nums[i] == nums[i - 1]) continue;
+        	
+        	int l = i + 1; int r = nums.length - 1;
+        	while(l < r) {
+        		int summ = nums[i] + nums[l] + nums[r];
+        		if(summ == 0) {
+        			List<Integer> triplet = Arrays.asList(nums[i], nums[l], nums[r]);
+        			result.add(triplet);
+        			int l_value = nums[l]; int r_value = nums[r];
+        			while(nums[l] == l_value) l++;
+        			while(nums[r] == r_value) r--;
+        		}
+        		else if(summ > 0)r--;
+        		else l++;
+        	}
         }
-        return ans;
-    }
+        return result;
+   }
 
 }
