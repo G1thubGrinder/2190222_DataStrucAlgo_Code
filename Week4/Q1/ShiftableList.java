@@ -20,9 +20,8 @@ public class ShiftableList extends CDLinkedList {
 	//change the nth data (counting from header) to be a new first 
 	//data of the list 
 	public void shift(int n) throws Exception {
-		DListIterator i1;
 		try {
-			i1 = (DListIterator) findPrevious(this.findKth(n-1));
+			DListIterator i1 = (DListIterator) findPrevious(this.findKth(n-1));
 			DListNode n1 = i1.currentNode;
 			DListNode n2 = n1.nextNode;
 			DListNode m1 = header.nextNode;
