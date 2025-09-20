@@ -33,7 +33,20 @@ public class Deck extends DeQLinkedList{
 		} catch(Exception e) {}
 	}
 	
-	//Used in reverseTopN
+	// reverse the first N numbers then put in the back
+	// ex. reverse(3), [4 9 1] 6 3 => 6 3 [1 9 4] 
+	public void reverse(int n) {
+		if(n <= 0) return;
+		try {
+			int first = this.removeFirst();
+			reverse(n-1);
+			this.insertLast(first);
+		} catch(Exception e) {}
+	}
+	
+	// rotate the rest of the number to the back
+	// [6 3] 1 9 4 => 1 9 4 [6 3]
+	// 1 9 4 6 3 is a result of reverse first 3 numbers
 	public void rotate(int n) {
 		if(n <= 0) return;
 		try {
@@ -43,16 +56,6 @@ public class Deck extends DeQLinkedList{
 		}
 		catch (Exception e){}
 		
-	}
-	
-	//Used in reverseTopN
-	public void reverse(int n) {
-		if(n <= 0) return;
-		try {
-			int first = this.removeFirst();
-			reverse(n-1);
-			this.insertLast(first);
-		} catch(Exception e) {}
 	}
 	
 	public void reverseTopN(int n) {
