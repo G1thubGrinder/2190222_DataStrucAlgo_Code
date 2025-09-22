@@ -46,10 +46,11 @@ public class TypingDeadList extends CDLinkedList {
 			if(w.charAt(0) != start.currentNode.data) continue;
 			if(w.charAt(w.length()-1) != end.currentNode.data) continue;
 			DListIterator d = new DListIterator(start.currentNode.nextNode);
-			for(int i = 1; i < w.length() - 1; ++i) {
+			for(i = 1; i < w.length() - 1; ++i) {
 				if(w.charAt(i) != (d.currentNode.data)) {break;}
+				d.next();
 			}
-			return;
+			if(i == w.length() - 1) return;
 		}
 		start = null;
 		end = null;
