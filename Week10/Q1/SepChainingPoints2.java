@@ -1,5 +1,6 @@
-package HW.Week10.Q1;
-
-public class SepChainingPoints2 {
-
+public class SepChainingPoints2 extends SepChainingPoints {
+	public boolean isCrossRoad(Point p) throws Exception {
+		this.add(p);
+		return pointValueExist(p);
+	}
 }
