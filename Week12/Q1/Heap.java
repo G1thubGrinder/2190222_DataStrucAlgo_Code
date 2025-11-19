@@ -19,7 +19,17 @@ public class Heap {
 		}
 		mData[size - 1] = element;
 		percolateUp();
-		
+
+		// modified part is to be written below
+		if (size < 2) return;
+		if(mData[size - 2] > mData[size - 1]) {
+			int temp = mData[size - 2];
+			mData[size - 2] = mData[size - 1];
+			mData[size - 1] = temp;
+		}
+		size--;
+		percolateUp();
+		size++;
 	}
 
 	protected void percolateUp() {
@@ -43,6 +53,7 @@ public class Heap {
 		return mData[0];
 	}
 
+	// never get called in our program
 	public int pop() throws Exception {
 		if (size == 0)
 			throw new Exception("Priority queue empty.");
@@ -75,11 +86,5 @@ public class Heap {
 		return size;
 	}
 
-	//write this method!!!
-	public static boolean isAHeap(Heap h) {
-		for(int i = 1; i < h.size(); ++i) {
-			if(h.mData[(int)Math.floor((i-1)/2)] > h.mData[i]) return false;
-		}
-		return true;
-	}
+
 }
