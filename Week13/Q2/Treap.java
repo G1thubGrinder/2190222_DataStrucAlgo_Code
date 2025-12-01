@@ -27,7 +27,7 @@ public class Treap {
 		else return new TreapNode(-999,-999);
 	}
 	
-	public TreapNode percolateUp(TreapNode a, TreapNode i) {
+	public TreapNode traverseUp(TreapNode a, TreapNode i) {
 		if(i == a.right) {
 			if(a == root) {
 				root = i;
@@ -77,7 +77,7 @@ public class Treap {
 		if(a.bstValue == -999 && a.heapValue == -999) return null;
 		while(root != i) {
 			if(i.parent.heapValue < i.heapValue) break;
-			i = percolateUp(i.parent,i);
+			i = traverseUp(i.parent,i);
 		}
 		return i;
 	}
